@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Rating";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ListAllRatings = (List<HLWEB.Models.Rating>)ViewBag.Rates;
+    var image = (Model.EF.Slide)ViewBag.Image;
+}
+
+<div class="page-heading about-heading header-text" style="background-image: url('@image.image.Substring(1)');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>HL COMPUTER</h4>
+                    <h2>Đánh giá</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services section-background">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in ListAllRatings)
+            {
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="down-content">
+                            <h4>@item.name</h4>
+                            <p class="n-m"><em>"@item.comment"</em></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    </div>
+</div>

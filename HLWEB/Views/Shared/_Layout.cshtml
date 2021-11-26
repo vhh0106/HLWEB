@@ -1,0 +1,199 @@
+﻿@using System.Web.Mvc;
+
+     
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/assets/images/LOGO_THACO.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="~/Content/css/StyleSheet1.css">
+
+
+    <title>HL COMPUTER </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/assets/home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/assets/home/css/fontawesome.css">
+    <link rel="stylesheet" href="~/assets/home/css/style.css">
+    <link rel="stylesheet" href="~/assets/home/css/owl.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    @{ var homeurl = "/Home";
+                    var contenturl = "/tin-tuc";
+                    var rateurl = "/danh-gia";
+                    var producturl = "/danh-sach-san-pham";
+                    var contacturl = "/lien-he";
+                    var infourl = "/ve-chung-toi";
+                    var nslurl = "/nha-sang-lap";
+                    var registerurl = "/dang-ky";
+                    var loginurl = "/dang-nhap"; }
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="@homeurl"><h2 style="color: rgb(42, 42, 168);">HL <em>Computer</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="@homeurl">
+                                Trang chủ
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="@producturl">Sản phẩm</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nhiều hơn</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="@contenturl">Tin tức</a>
+                                <a class="dropdown-item" href="@nslurl">Nhà sáng lập</a>
+                                <a class="dropdown-item" href="@rateurl">Đánh giá</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="@infourl">Về chúng tôi</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="@contacturl">Liên Hệ Với Chúng Tôi</a></li>
+
+                    </ul>
+                    <div class="navbar">
+                        @*@{ var session = (AccountLogin)Session[HLWEB.Common.CommonConstant.ACCOUNT_SESSION]; }
+                        @if (session == null)
+                        {*@
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="@registerurl">Đăng ký</a></li>
+                                <li class="nav-item"><a class="nav-link" href="@loginurl">Đăng nhập</a></li>
+                            </ul>
+                        @*}
+                        else
+                        {
+                            <ul>
+                                <li>Welcome: @session.UserName </li>
+                            </ul>
+                        }*@
+
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    @RenderSection("AboutUs", required: false)
+    @RenderSection("Index1", required: false)
+
+    <!-- Banner Ends Here -->
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="footer-info">
+                        <div class="section-title">
+                            <h2>Trụ sở</h2>
+                        </div>
+                        <address>
+                            <p> 65/21 Hoàng Văn Thụ<br>Phường Quảng Phú, Thành phố Quảng Ngãi</p>
+                        </address>
+
+                        <ul class="social-icon">
+                            <li><a href="https://www.facebook.com/vhh0106/" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                        </ul>
+
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2021 HL Computer</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="footer-info">
+                        <div class="section-title">
+                            <h2>Thông Tin Liên Hệ</h2>
+                        </div>
+                        <address>
+                            <p>034 855 4851</p>
+                            <p><a href="vhh0106@gmail.com">vhh0106@gmail.com</a></p>
+                        </address>
+
+                        <div class="footer_menu">
+                            <h2>Kết Nối nhanh</h2>
+                            <ul>
+                                <li><a href="@homeurl">Trang Chủ</a></li>
+                                <li><a href="@contacturl">Liên Hệ Với Chúng Tôi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="footer-info newsletter-form">
+                        <div class="section-title">
+                            <h2>Đăng Kí Nhận Bản Tin</h2>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <form action="#" method="get">
+                                    <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required>
+                                    <input type="submit" class="form-control" name="submit" id="form-submit" value="Gửi cho tôi">
+                                </form>
+                                <span><sup>*</sup> Xin lưu ý - Chúng tôi không spam email của bạn.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/assets/home/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="~/assets/home/js/custom.js"></script>
+    <script src="~/assets/home/js/owl.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>*@
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @RenderSection("Footer", required: false);
+</body>
+</html>
