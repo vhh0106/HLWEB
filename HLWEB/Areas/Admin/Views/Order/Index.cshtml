@@ -1,0 +1,50 @@
+﻿@model PagedList.IPagedList<HLWEB.Models.Order>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+@{ ViewBag.Title = "Quản lý đơn hàng"; Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml"; }
+@section header{
+    Danh sách Đơn hàng
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID đơn hàng</th>
+                        <th>Tên người đặt</th>
+                        <th>Điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Ngày đặt</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr id="row_@item.OrderID">
+                        <td>@item.OrderID</td>
+                        <td>@item.ShipName</td>
+                        <td>@item.ShipMobile</td>
+                        <td>@item.ShipAddress</td>
+                        <td>@item.ShipEmail</td>
+                        <td>@item.CreatedDate</td>
+                        <td><a href="/Admin/Order/Detail/@item.OrderID">Chi tiết</a></td>
+                    </tr>    
+                        
+
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+
+</div>
+

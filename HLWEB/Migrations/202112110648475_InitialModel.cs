@@ -1,9 +1,9 @@
-namespace HLWEB.Migrations
+﻿namespace HLWEB.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _0106 : DbMigration
+    public partial class InitialModel : DbMigration
     {
         public override void Up()
         {
@@ -140,6 +140,35 @@ namespace HLWEB.Migrations
                 .PrimaryKey(t => t.id);
             
             CreateTable(
+                "dbo.OrderDetail",
+                c => new
+                    {
+                        ID = c.Long(nullable: false, identity: true),
+                        OrderID = c.Long(nullable: false),
+                        ProductID = c.Long(nullable: false),
+                        Price = c.Decimal(precision: 18, scale: 2),
+                        Quantity = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Order", t => t.OrderID, cascadeDelete: true)
+                .Index(t => t.OrderID);
+            
+            CreateTable(
+                "dbo.Order",
+                c => new
+                    {
+                        OrderID = c.Long(nullable: false, identity: true),
+                        CreatedDate = c.DateTime(),
+                        CustomerID = c.Long(nullable: false),
+                        ShipName = c.String(maxLength: 250),
+                        ShipMobile = c.String(maxLength: 250),
+                        ShipAddress = c.String(maxLength: 250),
+                        ShipEmail = c.String(maxLength: 250),
+                        Status = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrderID);
+            
+            CreateTable(
                 "dbo.ProductCategory",
                 c => new
                     {
@@ -210,13 +239,17 @@ namespace HLWEB.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.OrderDetail", "OrderID", "dbo.Order");
             DropForeignKey("dbo.MoreProductImages", "Product_id", "dbo.Product");
+            DropIndex("dbo.OrderDetail", new[] { "OrderID" });
             DropIndex("dbo.MoreProductImages", new[] { "Product_id" });
             DropTable("dbo.User");
             DropTable("dbo.Slide");
             DropTable("dbo.Registers");
             DropTable("dbo.Ratings");
             DropTable("dbo.ProductCategory");
+            DropTable("dbo.Order");
+            DropTable("dbo.OrderDetail");
             DropTable("dbo.Product");
             DropTable("dbo.MoreProductImages");
             DropTable("dbo.Logins");

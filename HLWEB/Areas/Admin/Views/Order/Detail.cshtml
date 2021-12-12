@@ -1,0 +1,48 @@
+﻿@model List<HLWEB.Models.OrderDetail>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+@section header{
+    Danh sách của Đơn hàng
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{  decimal total = 0;
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ProductID</td>
+                                <td>@item.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                <td>@item.Quantity</td>
+                                <td>@((item.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+
+                            </tr>
+                            total += (item.Price.GetValueOrDefault(0) * item.Quantity);
+                        }
+                        
+                    }
+
+
+                </tbody>
+            </table>
+            <h7>Tổng hóa đơn: @total.ToString("N0") vnđ</h7>
+        </div>
+    </div>
+
+</div>
+

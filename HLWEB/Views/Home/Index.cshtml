@@ -42,6 +42,7 @@
             </div>
             @foreach (var item in ListHotProducts)
             {
+                //var urll = "/gio-hang/"+item.id+"-"+1;
                 var url1 = "/chi-tiet/" + item.metaTitle + "-" + item.id;
                 <div class="col-lg-4 col-md-6">
                     <div class="product-item">
@@ -65,6 +66,9 @@
                                 <strong title="Màn hình"><i class="fa fa-cube"></i> @item.manhinh</strong>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Hệ điều hành"><i class="fa fa-cog"></i> @item.hedieuhanh</strong>
                             </small>
+                        </div>
+                        <div class="add-cart">
+                            <h3><a href="/them-gio-hang?ProductId=@item.id&Quantity=1">THÊM VÀO GIỎ HÀNG</a></h3>
                         </div>
                     </div>
                 </div>
