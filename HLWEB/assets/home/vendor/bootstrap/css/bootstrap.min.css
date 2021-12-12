@@ -515,8 +515,7 @@ pre {
 }
 
 .container {
-    width: 100%;
-    padding-right: 15px;
+
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto
@@ -542,7 +541,7 @@ pre {
 
 @media (min-width:1200px) {
     .container {
-        max-width: 1140px
+        max-width: 1233px
     }
 }
 
@@ -1024,13 +1023,16 @@ pre {
     .col-md-2 {
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
-        max-width: 16.666667%
+        max-width: 26.666667%;
+        color: red;
+        font:900;
+        font-size:18px;
     }
 
     .col-md-3 {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
-        max-width: 25%
+        max-width: 2%
     }
 
     .col-md-4 {
@@ -1072,7 +1074,8 @@ pre {
     .col-md-10 {
         -ms-flex: 0 0 83.333333%;
         flex: 0 0 83.333333%;
-        max-width: 83.333333%
+        max-width: 83.333333%; 
+            
     }
 
     .col-md-11 {

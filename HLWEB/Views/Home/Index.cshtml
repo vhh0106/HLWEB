@@ -55,7 +55,7 @@
                         <h6><small><del>@item.price.Value.ToString("N0")</del></small> @item.promotionPrice.Value.ToString("N0")</h6> }
                                         else
                                         {
-                        <h6>@(item.price.HasValue?item.price.Value.ToString("N0"): "Liên hệ: 0917946616")</h6>}
+                        <h6>@(item.price.HasValue?item.price.Value.ToString("N0"): "Liên hệ: 0348554851")</h6>}
 
                             @*<p>@item.description</p>*@
                             <p>@item.Cpu &nbsp;/&nbsp; @item.ram &nbsp;/&nbsp; @item.trongluong &nbsp;</p>
@@ -124,7 +124,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h3>Tin tức mới nhất </h3>
+                    <h3 style="color:mintcream">Tin tức mới nhất </h3>
 
                     <a href="@contenturl">Đọc thêm <i class="fa fa-angle-right"></i></a>
                 </div>
@@ -167,11 +167,14 @@
                     {
                         <div class="service-item">
                             <div class="icon">
-                                <i class="fa fa-user"></i>
+                                
+                                    <img width="40px" src="~/assets/home/images/market.jpg" />
+                                
                             </div>
                             <div class="down-content">
                                 <h4>@item.name</h4>
-                                <p class="n-m"><em>@item.comment</em></p>
+                                <p h class="n-m"><em>@item.comment</em></p>
+                                
                             </div>
                         </div>
                     }
@@ -191,7 +194,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h4>VUI LÒNG LIÊN HỆ VỚI CHÚNG TÔI QUA SỐ HOTLINE HOẶC QUA EMAIL.</h4>
-                            <p>Chúng tôi sẽ giải đáp thắc mắc của bạn trong thời gian sớm nhất..</p>
+                            <h4>Chúng tôi sẽ giải đáp thắc mắc của bạn trong thời gian sớm nhất..</h4>
                         </div>
                         <div class="col-lg-4 col-md-6 text-right">
                             <a href="@contacturl" class="filled-button">Liên Hệ Với Chúng Tôi</a>

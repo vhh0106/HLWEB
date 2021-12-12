@@ -60,11 +60,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
       <HintPath>..\packages\Grpc.Core.2.38.1\lib\net45\Grpc.Core.dll</HintPath>
@@ -87,6 +96,9 @@
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.115.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -208,6 +220,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
@@ -232,6 +245,7 @@
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
@@ -250,9 +264,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111130436545_0106.cs" />
-    <Compile Include="Migrations\202111130436545_0106.Designer.cs">
-      <DependentUpon>202111130436545_0106.cs</DependentUpon>
+    <Compile Include="Migrations\202112120512059_1212.cs" />
+    <Compile Include="Migrations\202112120512059_1212.Designer.cs">
+      <DependentUpon>202112120512059_1212.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContentCategory.cs" />
@@ -273,6 +287,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\home\css\social.css" />
+    <Content Include="assets\home\images\facebook.png" />
+    <Content Include="assets\home\images\market.jpg" />
     <Content Include="assets\home\images\test.png" />
     <Content Include="assets\home\images\_-.jpg" />
     <Content Include="assets\admin\css\fontawesome.css" />
@@ -287,41 +304,8 @@
     <Content Include="assets\home\css\style.css" />
     <Content Include="assets\home\fonts\flexslider-icon.svg" />
     <Content Include="assets\home\fonts\fontawesome-webfont.svg" />
-    <Content Include="assets\home\images\Aboutus.jpg" />
-    <Content Include="assets\home\images\blog-1-370x270.jpg" />
-    <Content Include="assets\home\images\blog-2-370x270.jpg" />
-    <Content Include="assets\home\images\blog-3-370x270.jpg" />
-    <Content Include="assets\home\images\blog-4-370x270.jpg" />
-    <Content Include="assets\home\images\blog-5-370x270.jpg" />
-    <Content Include="assets\home\images\blog-6-370x270.jpg" />
-    <Content Include="assets\home\images\blog-image-fullscren-1-1920x700.jpg" />
     <Content Include="assets\home\images\favicon.ico" />
-    <Content Include="assets\home\images\heading-1-1920x500.jpg" />
-    <Content Include="assets\home\images\heading-2-1920x500.jpg" />
-    <Content Include="assets\home\images\heading-3-1920x500.jpg" />
-    <Content Include="assets\home\images\heading-4-1920x500.jpg" />
-    <Content Include="assets\home\images\heading-5-1920x500.jpg" />
-    <Content Include="assets\home\images\heading-6-1920x500.jpg" />
-    <Content Include="assets\home\images\LOGO_THACO.png" />
     <Content Include="assets\home\images\luan.png" />
-    <Content Include="assets\home\images\other-image-fullscren-1-1920x900.jpg" />
-    <Content Include="assets\home\images\product-1-370x270.jpg" />
-    <Content Include="assets\home\images\product-2-370x270.jpg" />
-    <Content Include="assets\home\images\product-3-370x270.jpg" />
-    <Content Include="assets\home\images\product-4-370x270.jpg" />
-    <Content Include="assets\home\images\product-5-370x270.jpg" />
-    <Content Include="assets\home\images\product-6-370x270.jpg" />
-    <Content Include="assets\home\images\product-details-1-740x540.jpg" />
-    <Content Include="assets\home\images\slider-image-1-1600x800.jpg" />
-    <Content Include="assets\home\images\slider-image-1-1920x600.jpg" />
-    <Content Include="assets\home\images\slider-image-2-1920x600.jpg" />
-    <Content Include="assets\home\images\slider-image-3-1920x600.jpg" />
-    <Content Include="assets\home\images\team_01.jpg" />
-    <Content Include="assets\home\images\team_02.jpg" />
-    <Content Include="assets\home\images\team_03.jpg" />
-    <Content Include="assets\home\images\team_04.jpg" />
-    <Content Include="assets\home\images\team_05.jpg" />
-    <Content Include="assets\home\images\team_06.jpg" />
     <Content Include="assets\admin\img\undraw_posting_photo.svg" />
     <Content Include="assets\admin\img\undraw_profile.svg" />
     <Content Include="assets\admin\img\undraw_profile_1.svg" />
@@ -330,7 +314,6 @@
     <Content Include="assets\admin\img\undraw_rocket.svg" />
     <Content Include="assets\home\js\custom.js" />
     <Content Include="assets\home\js\owl.js" />
-    <Content Include="assets\home\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="assets\home\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\home\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="assets\home\vendor\bootstrap\js\bootstrap.bundle.min.js" />
@@ -2270,6 +2253,7 @@
     <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MoreImage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MoreImage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2305,6 +2289,7 @@
     <Content Include="Views\Product\ListHotProduct.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\DetailPC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2317,6 +2302,7 @@
     <Folder Include="assets\img\rating\" />
     <Folder Include="assets\img\slide\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Views\Session\" />
     <Folder Include="Views\Slide\" />
   </ItemGroup>
   <ItemGroup>
@@ -2339,8 +2325,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111130436545_0106.resx">
-      <DependentUpon>202111130436545_0106.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202112120512059_1212.resx">
+      <DependentUpon>202112120512059_1212.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -2363,6 +2349,8 @@
           <DevelopmentServerPort>62756</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44310/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44310/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -2378,8 +2366,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

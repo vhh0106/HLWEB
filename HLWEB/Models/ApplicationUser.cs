@@ -44,7 +44,7 @@ namespace HLWEB.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<HLWEB.Models.Register> Registers { get; set; }
+        public DbSet<Register> Registers { get; set; }
 
         public System.Data.Entity.DbSet<HLWEB.Models.Login> Logins { get; set; }
     }

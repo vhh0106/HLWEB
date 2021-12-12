@@ -1,6 +1,6 @@
-﻿@using System.Web.Mvc;
+﻿ @using System.Web.Mvc;
 
-     
+
 
 @{ Layout = null; }
 
@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="~/assets/images/LOGO_THACO.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="~/Content/css/StyleSheet1.css">
@@ -28,7 +27,7 @@
     <link rel="stylesheet" href="~/assets/home/css/fontawesome.css">
     <link rel="stylesheet" href="~/assets/home/css/style.css">
     <link rel="stylesheet" href="~/assets/home/css/owl.css">
-
+    <link href="~/assets/home/css/social.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -44,14 +43,16 @@
     <!-- ***** Preloader End ***** -->
     <!-- Header -->
     @{ var homeurl = "/Home";
-                    var contenturl = "/tin-tuc";
-                    var rateurl = "/danh-gia";
-                    var producturl = "/danh-sach-san-pham";
-                    var contacturl = "/lien-he";
-                    var infourl = "/ve-chung-toi";
-                    var nslurl = "/nha-sang-lap";
-                    var registerurl = "/dang-ky";
-                    var loginurl = "/dang-nhap"; }
+        var contenturl = "/tin-tuc";
+        var rateurl = "/danh-gia";
+        var producturl = "/danh-sach-san-pham";
+        var contacturl = "/lien-he";
+        var infourl = "/ve-chung-toi";
+        var nslurl = "/nha-sang-lap";
+        var registerurl = "/dang-ky";
+        var loginurl = "/dang-nhap";
+
+    }
     <header class="">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -66,10 +67,17 @@
                                 Trang chủ
                                 <span class="sr-only">(current)</span>
                             </a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="@producturl" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
+                            <div class="dropdown-menu">
+
+                                <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusROG-1">Asus Rog</a>
+                                <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusTUF-2">Asus TUF</a>
+                                <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusVivobook-3">Asus Vivobook</a>
+                                <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusExpertBook-4">Asus ExpertBook</a>
+                            </div>
                         </li>
-
-                        <li class="nav-item"><a class="nav-link" href="@producturl">Sản phẩm</a></li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nhiều hơn</a>
                             <div class="dropdown-menu">
@@ -84,21 +92,23 @@
                         <li class="nav-item"><a class="nav-link" href="@contacturl">Liên Hệ Với Chúng Tôi</a></li>
 
                     </ul>
-                    <div class="navbar">
-                        @*@{ var session = (AccountLogin)Session[HLWEB.Common.CommonConstant.ACCOUNT_SESSION]; }
-                        @if (session == null)
+                    <div class="container">
+                        @*@{ var session = (AccountLogin)Session[HLWEB.Common.CommonConstant.ACCOUNT_SESSION];
+                        if (session == null)
                         {*@
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><a class="nav-link" href="@registerurl">Đăng ký</a></li>
-                                <li class="nav-item"><a class="nav-link" href="@loginurl">Đăng nhập</a></li>
-                            </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="@registerurl">Đăng ký</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@loginurl">Đăng nhập</a></li>
+                        </ul>
                         @*}
                         else
                         {
                             <ul>
-                                <li>Welcome: @session.UserName </li>
-                            </ul>
-                        }*@
+                        <li>Welcome: @session.UserName </li>
+                        <li>@Html.ActionLink("Thoát", "Logout", "Account")</li>
+                            </ul>*@
+                        @*}
+                            }*@
 
 
 
@@ -171,7 +181,7 @@
                             <div class="form-group">
                                 <form action="#" method="get">
                                     <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required>
-                                    <input type="submit" class="form-control" name="submit" id="form-submit" value="Gửi cho tôi">
+                                    <input type="submit" class="form-control" name="submit" id="form-submit" value=" Gửi cho tôi">
                                 </form>
                                 <span><sup>*</sup> Xin lưu ý - Chúng tôi không spam email của bạn.</span>
                             </div>
@@ -195,5 +205,6 @@
     @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>*@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @RenderSection("Footer", required: false);
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acremclzstaihfnghpth")</script>
 </body>
 </html>

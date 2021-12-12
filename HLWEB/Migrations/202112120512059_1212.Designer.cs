@@ -7,13 +7,13 @@ namespace HLWEB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _0106 : IMigrationMetadata
+    public sealed partial class _1212 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_0106));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_1212));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111130436545_0106"; }
+            get { return "202112120512059_1212"; }
         }
         
         string IMigrationMetadata.Source

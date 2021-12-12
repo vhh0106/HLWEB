@@ -3,7 +3,7 @@ namespace HLWEB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _0106 : DbMigration
+    public partial class _1212 : DbMigration
     {
         public override void Up()
         {
@@ -88,8 +88,9 @@ namespace HLWEB.Migrations
                 "dbo.Logins",
                 c => new
                     {
-                        UserName = c.String(nullable: false, maxLength: 128),
-                        Password = c.String(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 250),
+                        Password = c.String(nullable: false, maxLength: 250),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.UserName);
             
@@ -172,13 +173,14 @@ namespace HLWEB.Migrations
                 c => new
                     {
                         ID = c.Long(nullable: false, identity: true),
-                        UserName = c.String(nullable: false),
-                        Password = c.String(nullable: false),
-                        ConfirmPassword = c.String(),
-                        Name = c.String(nullable: false),
-                        Email = c.String(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 250),
+                        Password = c.String(nullable: false, maxLength: 250),
+                        ConfirmPassword = c.String(maxLength: 250),
+                        Name = c.String(nullable: false, maxLength: 250),
+                        Email = c.String(nullable: false, maxLength: 250),
                         Address = c.String(),
-                        PhoneNumber = c.String(nullable: false),
+                        PhoneNumber = c.String(nullable: false, maxLength: 10),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             

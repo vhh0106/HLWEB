@@ -39,5 +39,11 @@ namespace HLWEB.Areas.Admin.Controllers
             }
             return View("Index");
         }
+        public ActionResult Logout()
+        {
+            Session[CommonConstant.USER_SESSION] = null;
+            return RedirectToAction("Index", "Home");
+        }
     }
+    
 }

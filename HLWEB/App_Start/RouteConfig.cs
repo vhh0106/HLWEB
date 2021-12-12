@@ -13,8 +13,9 @@ namespace HLWEB
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            
-
+            routes.IgnoreRoute("{*botdetect}",
+            new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+                
 
 
             routes.MapRoute(
@@ -81,6 +82,13 @@ namespace HLWEB
             );
 
             routes.MapRoute(
+            name: "ProductPC",
+            url: "chi-tietPC/{metaTitle}-{id}",
+            defaults: new { controller = "Product", action = "DetailPC", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+);
+
+            routes.MapRoute(
             name: "Team",
             url: "nha-sang-lap",
             defaults: new { controller = "Team", action = "Team", id = UrlParameter.Optional },
@@ -91,14 +99,14 @@ namespace HLWEB
             name: "Register",
             url: "dang-ky",
             defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
-            new[] { "DACN.Controllers" }
+            new[] { "HLWEB.Controllers" }
             );
 
             routes.MapRoute(
             name: "Login",
             url: "dang-nhap",
             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
-            new[] { "DACN.Controllers" }
+            new[] { "HLWEB.Controllers" }
             );
             routes.MapRoute(
             "Default",

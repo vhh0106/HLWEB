@@ -990,7 +990,7 @@ footer .inner-content p a {
 
 
 /* Responsive Style */
-@media (max-width: 768px) {
+@media (max-width: 1222px) {
 	.banner .text-content {
 		width: 90%;
 		margin-left: 5%;
@@ -1054,7 +1054,7 @@ footer .inner-content p a {
 	}
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1222px) {
 	.navbar .navbar-brand {
 		position: absolute;
 		left: 30px;

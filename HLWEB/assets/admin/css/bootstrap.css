@@ -53,7 +53,7 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-  -moz-text-decoration: underline dotted;
+ 
   text-decoration: underline dotted;
 }
 b,
@@ -1581,24 +1581,15 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+ 
+    
   margin-right: auto;
   margin-left: auto;
 }
-@media (min-width: 768px) {
+
+@media (min-width: 1222px) {
   .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
+    width: 1222px;
   }
 }
 .container-fluid {
