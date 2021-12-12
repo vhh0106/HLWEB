@@ -541,7 +541,11 @@ pre {
 
 @media (min-width:1200px) {
     .container {
+<<<<<<< HEAD
         max-width: 1233px
+=======
+        max-width: 1350px
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
     }
 }
 

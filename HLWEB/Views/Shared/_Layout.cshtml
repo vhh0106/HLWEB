@@ -68,9 +68,14 @@
                                 <span class="sr-only">(current)</span>
                             </a>
 
+<<<<<<< HEAD
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="@producturl" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
                             <div class="dropdown-menu">
+=======
+                        <li class="nav-item"><a class="nav-link" href="@producturl">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/gio-hang">Giỏ hàng</a></li>
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
 
                                 <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusROG-1">Asus Rog</a>
                                 <a class="dropdown-item" href="/danh-sach-san-pham/LaptopAsusTUF-2">Asus TUF</a>
@@ -122,6 +127,8 @@
     <!-- Banner Starts Here -->
     @RenderSection("AboutUs", required: false)
     @RenderSection("Index1", required: false)
+
+    
 
     <!-- Banner Ends Here -->
     @RenderBody()
@@ -205,6 +212,10 @@
     @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>*@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @RenderSection("Footer", required: false);
+<<<<<<< HEAD
     <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acremclzstaihfnghpth")</script>
+=======
+    @RenderSection("jsFooter", required: false)
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
 </body>
 </html>

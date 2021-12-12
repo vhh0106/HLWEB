@@ -1,0 +1,83 @@
+﻿@model List<HLWEB.Models.CartItem>
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    <script src="/assets/home/js/controller/CartCtrl.js"></script>
+}
+
+
+<div class="services section-background">
+    <div class="container">
+        <div class="card shadow mb-4">
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td>Mã Sp</td>
+                                <td>Tên Sp</td>
+                                <td>Ảnh</td>
+                                <td>Số lượng</td>
+                                <td>Đơn giá</td>
+                                <td>Thành tiền</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                decimal total = 0;
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Product.id</td>
+                                        <td>@item.Product.name</td>
+                                        <td><img src="@Url.Content(item.Product.image)" width="20" /></td>
+                                        <td><input type="text" class="quantity" data-id="@item.Product.id" value="@item.Quantity" /></td>
+                                        <td>@item.Product.price.GetValueOrDefault(0).ToString("N0")</td>
+                                        <td>@((item.Product.price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                        <td><a href="#" data-id="@item.Product.id" class="btn-delete">Xóa</a></td>
+                                    </tr>
+                                    total += (item.Product.price.GetValueOrDefault(0) * item.Quantity);
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                    <div class="card"><h3 class="right">Tổng hóa đơn: @total.ToString("N0")</h3></div>
+                </div>
+                <div class="col-md-5">
+                    <div class="section group">
+                        @using (Html.BeginForm("Pay", "Cart", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label>Người nhận</label>
+                                <input name="ShipName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Điện thoại</label>
+                                <input name="ShipMobile" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ</label>
+                                <input name="ShipAddress" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Gmail</label>
+                                <input name="ShipEmail" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn">Gửi đơn hàng</button>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Data.OleDb;
+using System.Data;
 
 namespace HLWEB.DAO
 {
@@ -130,7 +132,7 @@ namespace HLWEB.DAO
             return db.Products.OrderByDescending(p => p.categoryID).ToPagedList(page, pageSize);
         }
 
-        public Product ViewDetail(int id)
+        public Product ViewDetail(long id)
         {
             return db.Products.Find(id);
         }
@@ -151,5 +153,7 @@ namespace HLWEB.DAO
         {
             return db.Products.Where(p => p.topHot > DateTime.Now).OrderBy(p => p.topHot).ToList();
         }
+
+       
     }
 }

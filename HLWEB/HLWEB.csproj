@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -67,10 +68,10 @@
       <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
@@ -229,6 +230,8 @@
     <Compile Include="Areas\Admin\Controllers\InfoController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoreImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\RatingController.cs" />
@@ -240,6 +243,7 @@
     <Compile Include="Common\Encryption.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -255,6 +259,8 @@
     <Compile Include="DAO\FounderDAO.cs" />
     <Compile Include="DAO\InfoDAO.cs" />
     <Compile Include="DAO\MoreImageDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
+    <Compile Include="DAO\OrderDetailDAO.cs" />
     <Compile Include="DAO\ProductCategoryDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\RatingDAO.cs" />
@@ -264,11 +270,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202112120512059_1212.cs" />
     <Compile Include="Migrations\202112120512059_1212.Designer.cs">
       <DependentUpon>202112120512059_1212.cs</DependentUpon>
+=======
+    <Compile Include="Maill.cs" />
+    <Compile Include="Migrations\202112110648475_InitialModel.cs" />
+    <Compile Include="Migrations\202112110648475_InitialModel.designer.cs">
+      <DependentUpon>202112110648475_InitialModel.cs</DependentUpon>
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ContentCategory.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Content.cs" />
@@ -276,6 +290,8 @@
     <Compile Include="Models\Info.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MoreProductImage.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Rating.cs" />
@@ -312,8 +328,14 @@
     <Content Include="assets\admin\img\undraw_profile_2.svg" />
     <Content Include="assets\admin\img\undraw_profile_3.svg" />
     <Content Include="assets\admin\img\undraw_rocket.svg" />
+    <Content Include="assets\home\js\controller\CartCtrl.js" />
     <Content Include="assets\home\js\custom.js" />
     <Content Include="assets\home\js\owl.js" />
+<<<<<<< HEAD
+=======
+    <Content Include="assets\home\neworder.html" />
+    <Content Include="assets\home\vendor\bootstrap\css\bootstrap.css" />
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
     <Content Include="assets\home\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\home\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="assets\home\vendor\bootstrap\js\bootstrap.bundle.min.js" />
@@ -2018,6 +2040,7 @@
     <Content Include="assets\home\vendor\jquery\jquery.slim.js" />
     <Content Include="assets\home\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2253,12 +2276,26 @@
     <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MoreImage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MoreImage\Create.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+=======
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Detail.cshtml" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -2289,10 +2326,18 @@
     <Content Include="Views\Product\ListHotProduct.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Product\DetailPC.cshtml" />
+=======
+    <Content Include="Views\Cart\CartIndex.cshtml" />
+    <Content Include="Views\Cart\Pay.cshtml" />
+    <Content Include="Views\Cart\Done.cshtml" />
+    <Content Include="Views\Cart\ER.cshtml" />
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\OrderDetail\" />
     <Folder Include="Areas\Admin\Views\Session\" />
     <Folder Include="assets\admin\img\rating\" />
     <Folder Include="assets\img\founder\" />
@@ -2315,8 +2360,6 @@
     <Content Include="assets\admin\css\bootstrap-theme.min.css.map" />
     <Content Include="assets\admin\css\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
@@ -2325,8 +2368,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202112120512059_1212.resx">
       <DependentUpon>202112120512059_1212.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202112110648475_InitialModel.resx">
+      <DependentUpon>202112110648475_InitialModel.cs</DependentUpon>
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -2366,10 +2414,18 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+<<<<<<< HEAD
     <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets')" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+=======
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.2.38.1\build\net45\Grpc.Core.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+>>>>>>> 8251886ef6110a1423cc81043d787dd0172b00b7
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

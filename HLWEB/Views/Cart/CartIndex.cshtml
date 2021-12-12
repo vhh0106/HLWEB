@@ -1,0 +1,58 @@
+﻿@model List<HLWEB.Models.CartItem>
+@{
+    ViewBag.Title = "CartIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    <script src="/assets/home/js/controller/CartCtrl.js"></script>
+}
+
+<div class="services section-background">
+    <div class="container">
+        <div class="card shadow mb-4">
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td>Mã Sp</td>
+                                <td>Tên Sp</td>
+                                <td>Ảnh</td>
+                                <td>Số lượng</td>
+                                <td>Đơn giá</td>
+                                <td>Thành tiền</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                decimal total = 0;
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Product.id</td>
+                                        <td>@item.Product.name</td>
+                                        <td><img src="@Url.Content(item.Product.image)" width="20" /></td>
+                                        <td><input type="text" class="quantity" data-id="@item.Product.id" value="@item.Quantity" /></td>
+                                        <td>@item.Product.price.GetValueOrDefault(0).ToString("N0")</td>
+                                        <td>@((item.Product.price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                        <td><a href="#" data-id="@item.Product.id" class="btn-delete">Xóa</a></td>
+                                    </tr>
+                                    total += (item.Product.price.GetValueOrDefault(0) * item.Quantity);
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card"><h3 class="right">Tổng hóa đơn: @total.ToString("N0")</h3></div>
+                <button id="btnContinute" class="btn">Tiếp tục mua</button>
+                <button id="btnUpdate" class="btn">Cập nhật lại</button>
+                <button id="btnDelete" class="btn">Xóa giỏ hàng</button>
+                <button id="btnPay" class="btn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+</div>

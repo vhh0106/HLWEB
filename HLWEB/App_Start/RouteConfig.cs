@@ -75,6 +75,13 @@ namespace HLWEB
             );
 
             routes.MapRoute(
+            name: "Detail",
+            url: "Detail/{id}",
+            defaults: new { controller = "Order", action = "Detail", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
+            routes.MapRoute(
             name: "Product",
             url: "chi-tiet/{metaTitle}-{id}",
             defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
@@ -108,6 +115,42 @@ namespace HLWEB
             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
             new[] { "HLWEB.Controllers" }
             );
+
+            routes.MapRoute(
+            name: "CartIndex",
+            url: "gio-hang",
+            defaults: new { controller = "Cart", action = "CartIndex", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
+            routes.MapRoute(
+            name: "CartItem",
+            url: "them-gio-hang",
+            defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
+            routes.MapRoute(
+            name: "Pay",
+            url: "thanh-toan",
+            defaults: new { controller = "Cart", action = "Pay", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
+            routes.MapRoute(
+            name: "Done",
+            url: "hoan-thanh",
+            defaults: new { controller = "Cart", action = "Done", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
+            routes.MapRoute(
+            name: "ER",
+            url: "loi",
+            defaults: new { controller = "Cart", action = "ER", id = UrlParameter.Optional },
+            new[] { "HLWEB.Controllers" }
+            );
+
             routes.MapRoute(
             "Default",
             "{controller}/{action}/{id}",
@@ -115,7 +158,7 @@ namespace HLWEB
             new[] { "HLWEB.Controllers" }
             );
 
-
+            
 
         }
     }
